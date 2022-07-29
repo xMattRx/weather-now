@@ -1,0 +1,47 @@
+footer {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+
+    .footer_content {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+
+        .container_countries {
+            display: flex;
+
+            img {
+                cursor: pointer;
+                height: 20px;
+                width: 20px;
+            }
+
+            img:first-child {
+                margin-right: 12px;
+            }
+
+            img:last-child {
+                margin-left: 12px;
+            }
+        }
+
+        p {
+            color: #fff;
+            cursor: default;
+            font-family: 'Montserrat';
+            font-size: 10px;
+            font-weight: 400;
+            margin-bottom: 15px;
+            margin-top: 3px;
+        }
+
+    }
+
+
+
+}
