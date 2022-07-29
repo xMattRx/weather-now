@@ -7,7 +7,7 @@ import { changeLanguage } from '../../redux/languageSlice'
 import styles from '../../styles/Footer.module.scss'
 
 function Footer() {
-  const {language} = useSelector((state) => state.language.value)
+  const {language, select} = useSelector((state) => state.language.value)
   const dispatch = useDispatch()
 
 
@@ -22,7 +22,8 @@ function Footer() {
                             language: "Português",
                             title: "Como está o tempo hoje?",
                             placeholder: "Digite o nome da cidade",
-                            select: "Idioma selecionado:"
+                            select: "Idioma selecionado:",
+                            api: "pt_br"
                         }))
                     }} alt={language === 'Português' ? language : language === "English" ? "Portuguese" : "portugués"} />
                     <img src={EUA} onClick={() => {
@@ -30,7 +31,8 @@ function Footer() {
                             language: "English",
                             title: "How is the weather today?",
                             placeholder: "Enter the city name",
-                            select: "Selected language:"
+                            select: "Selected language:",
+                            api: "en"
                         }))
                     }} alt={language === 'English' ? language : language === "Português" ? "Inglês" : "Inglés"}/>
                     <img src={espanha} onClick={() => {
@@ -38,12 +40,13 @@ function Footer() {
                             language: "Español",
                             title: "¿Cómo está el clima hoy?",
                             placeholder: "Introduzca el nombre de la ciudad",
-                            select: "Idioma seleccionado:"
+                            select: "Idioma seleccionado:",
+                            api: "es"
                         }))
                     }} alt={language === 'Español' ? language : language === "Português" ? "Espanhol" : "Spanish"} />
 
                 </div>
-                <p>Idioma selecionado: {language}</p>
+                <p>{select} {language}</p>
             </div>
 
         </footer>

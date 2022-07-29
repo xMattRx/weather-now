@@ -6,7 +6,9 @@ const initialState = {
         title: "Como está o tempo hoje?",
         placeholder: "Digite o nome da cidade",
         select: "Idioma selecionado:",
-    }
+        api: "pt_br"
+    },
+    data: null,
 }
 
 export const LanguageSlice = createSlice({
