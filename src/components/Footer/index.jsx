@@ -23,6 +23,7 @@ function Footer() {
                             title: "Como está o tempo hoje?",
                             placeholder: "Digite o nome da cidade",
                             select: "Idioma selecionado:",
+                            nextDays: "Ver previsão para os próximos 5 dias",
                             api: "pt_br"
                         }))
                     }} alt={language === 'Português' ? language : language === "English" ? "Portuguese" : "Portugués"} />
@@ -32,6 +33,7 @@ function Footer() {
                             title: "How is the weather today?",
                             placeholder: "Enter the city name",
                             select: "Selected language:",
+                            nextDays: "See forecast for the next 5 days",
                             api: "en"
                         }))
                     }} alt={language === 'English' ? language : language === "Português" ? "Inglês" : "Inglés"}/>
@@ -41,6 +43,7 @@ function Footer() {
                             title: "¿Cómo está el clima hoy?",
                             placeholder: "Introduzca el nombre de la ciudad",
                             select: "Idioma seleccionado:",
+                            nextDays: "Ver previsión para los próximos 5 días",
                             api: "es"
                         }))
                     }} alt={language === 'Español' ? language : language === "Português" ? "Espanhol" : "Spanish"} />

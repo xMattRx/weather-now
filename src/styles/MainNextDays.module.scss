@@ -1,0 +1,36 @@
+.main {
+    align-items: center;
+    color: #fff;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+
+    h2 {
+        letter-spacing: 8px;
+        font-size: 43px;
+        font-weight: 700;
+        margin-bottom: 9px;
+        margin-top: 218.6px;
+        text-transform: uppercase;
+    }
+
+    .description {
+        margin-bottom: 20px;
+    }
+
+    .containerDays {
+        margin-top: 90px;
+
+        div:not(div:first-child) {
+            margin-top: 15px;
+        }
+
+        div:last-child {
+            margin-bottom: 248px;
+        }
+    }
+
+
+
+}

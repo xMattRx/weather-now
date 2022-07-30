@@ -40,7 +40,7 @@ function MainHome({isScriptLoaded, isScriptLoadSucceed}) {
                             {suggestions.filter((suggestion,index)=>{
                                 return (suggestion.description.includes('Brasil') && suggestion.description.includes('MG'))
                             }).map((suggestion, index)=>{
-                                console.log(suggestion)
+                                // console.log(suggestion)
                                 return(
                                     <div key={index} {...getSuggestionItemProps(suggestion)}>
                                         <Link to={`/${formatString(suggestion.formattedSuggestion.mainText)}`}><p>{suggestion.formattedSuggestion.mainText}</p></Link>

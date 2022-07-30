@@ -57,8 +57,11 @@
 
     .next_days {
         cursor: pointer;
-        font-size: 12px;
         margin-bottom: 317px;
+
+        p {
+            font-size: 12px;
+        }
     }
 
 

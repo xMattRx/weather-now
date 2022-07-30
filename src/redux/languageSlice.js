@@ -6,6 +6,7 @@ const initialState = {
         title: "Como está o tempo hoje?",
         placeholder: "Digite o nome da cidade",
         select: "Idioma selecionado:",
+        nextDays: "Ver previsão para os próximos 5 dias",
         api: "pt_br"
     },
 }

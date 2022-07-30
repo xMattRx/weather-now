@@ -1,6 +1,9 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { Link, useParams } from 'react-router-dom';
 import cloud from '../../assets/images/cloud.svg';
-import { default as storm, default as sun } from '../../assets/images/storm.svg';
+import storm from '../../assets/images/storm.svg';
+import sun from '../../assets/images/sun.svg';
 import sun_cloud from '../../assets/images/sun_cloud.svg';
 import styles from '../../styles/MainCityWeather.module.scss';
 
@@ -26,7 +29,11 @@ function SunCloud(){
     )
 }
 
+
 function MainCityWeather() {
+    const {nextDays} = useSelector((state) => state.language.value)
+    let {city} = useParams()
+
   return (
     <main className={styles.main}>
         <h2>Belo Horizonte</h2>
@@ -39,9 +46,15 @@ function MainCityWeather() {
             <p><span>MAX:</span> 29°</p>
             <p><span>MIN</span>: 14°</p>
         </div>
-        <p className={styles.next_days}>Ver previsão para os próximos 5 dias <hr/></p>
+        
+            <div className={styles.next_days}>
+            <Link to={`/${city}/nextDays`}><p>{nextDays} <hr/></p></Link>
+            </div>
+                
     </main>
   )
 }
 
 export default MainCityWeather
+
+
