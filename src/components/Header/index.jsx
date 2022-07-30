@@ -1,17 +1,20 @@
 import React from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
 import styles from '../../styles/Header.module.scss';
 import TemperatureType from '../TemperatureType';
 
 
 function Header() {
-    const data = useSelector((state) => state.language.data)
-    console.log(data)
+    // const data = useSelector((state) => state.data.value)
+        const navigate = useNavigate();
+        let {city} = useParams()
+
     return (
         <header className={styles.header}>
-            {data && <BsArrowLeft className={styles.arrow} />}
-            {!data && <div></div>}
+            {city && <BsArrowLeft onClick={() => navigate(-1)} className={styles.arrow} />}
+            {!city && <div></div>}
             <TemperatureType />
         </header>
     )

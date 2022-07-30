@@ -1,7 +1,9 @@
 import { styled } from '@mui/material/styles';
 import Switch from '@mui/material/Switch';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Scale } from '..';
+import { changeScale } from '../../redux/scaleSlice';
 import styles from '../../styles/TemperatureType.module.scss';
 
 const IOSSwitch = styled((props) => (
@@ -57,14 +59,25 @@ const IOSSwitch = styled((props) => (
     },
 }));
 
+//TRUE === F
+//FALSE === C
+
 function TemperatureType() {
+    const {value} = useSelector((state) => state.scale)
+    const dispatch = useDispatch()
+
     return (
         <div className={styles.container}>
             <Scale className={styles.scaleF}>°F</Scale>
-            <IOSSwitch />
+            <IOSSwitch onClick={() => {               
+                        dispatch(changeScale())
+                    }} />
             <Scale className={styles.scaleC}>°C</Scale>
         </div>
     )
 }
 
 export default TemperatureType
+
+
+

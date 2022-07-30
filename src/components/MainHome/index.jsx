@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
-import scriptLoader from 'react-async-script-loader'
-import PlacesAutocomplete from 'react-places-autocomplete'
-import { useSelector } from 'react-redux'
-import styles from '../../styles/Main.module.scss'
+import React, { useState } from 'react';
+import scriptLoader from 'react-async-script-loader';
+import PlacesAutocomplete from 'react-places-autocomplete';
+import { useSelector } from 'react-redux';
+import { Link } from "react-router-dom";
+import styles from '../../styles/MainHome.module.scss';
 
-function Main({isScriptLoaded, isScriptLoadSucceed}) {
+function MainHome({isScriptLoaded, isScriptLoadSucceed}) {
     const language = useSelector((state) => state.language.value)
     const [address, setAddress] = useState("");
 
@@ -14,10 +15,11 @@ function Main({isScriptLoaded, isScriptLoadSucceed}) {
     const handleChange = (value) =>{
         setAddress(value)
     }
-
     const handleSelect = (value) =>{
-        
         setAddress(value)
+    }
+    const formatString = (string) =>{
+        return string.replaceAll(" ", '-')
     }
 
 
@@ -34,13 +36,14 @@ function Main({isScriptLoaded, isScriptLoadSucceed}) {
 
                         <div className={styles.container_suggestions}>
                             {loading && <div>Loading...</div>}
+                            {/* Apenas cidades mineiras  :) */}
                             {suggestions.filter((suggestion,index)=>{
-                                console.log(suggestion)
-                                return suggestion.description.includes('Brasil')
+                                return (suggestion.description.includes('Brasil') && suggestion.description.includes('MG'))
                             }).map((suggestion, index)=>{
+                                console.log(suggestion)
                                 return(
                                     <div key={index} {...getSuggestionItemProps(suggestion)}>
-                                        <p>{suggestion.description}</p>
+                                        <Link to={`/${formatString(suggestion.formattedSuggestion.mainText)}`}><p>{suggestion.formattedSuggestion.mainText}</p></Link>
                                     </div>
                                 )
                             })}
@@ -55,5 +58,5 @@ function Main({isScriptLoaded, isScriptLoadSucceed}) {
     }
 }
 
-export default scriptLoader([`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_KEY}&libraries=places`])(Main)
+export default scriptLoader([`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_KEY}&libraries=places`])(MainHome)
 

@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import brasil from '../../assets/images/brasil.png'
-import EUA from '../../assets/images/estados-unidos.png'
-import espanha from '../../assets/images/spain.png'
+import brasil from '../../assets/images/brasil.svg'
+import EUA from '../../assets/images/estados-unidos.svg'
+import espanha from '../../assets/images/spain.svg'
 import { changeLanguage } from '../../redux/languageSlice'
 import styles from '../../styles/Footer.module.scss'
 
@@ -25,7 +25,7 @@ function Footer() {
                             select: "Idioma selecionado:",
                             api: "pt_br"
                         }))
-                    }} alt={language === 'Português' ? language : language === "English" ? "Portuguese" : "portugués"} />
+                    }} alt={language === 'Português' ? language : language === "English" ? "Portuguese" : "Portugués"} />
                     <img src={EUA} onClick={() => {
                         dispatch(changeLanguage({
                             language: "English",

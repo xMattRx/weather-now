@@ -8,7 +8,6 @@ const initialState = {
         select: "Idioma selecionado:",
         api: "pt_br"
     },
-    data: null,
 }
 
 export const LanguageSlice = createSlice({
