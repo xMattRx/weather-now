@@ -7,7 +7,8 @@ import { changeScale } from '../../redux/scaleSlice';
 import styles from '../../styles/TemperatureType.module.scss';
 
 const IOSSwitch = styled((props) => (
-    <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
+    
+    <Switch checked={props.checked} focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
 ))(({ theme }) => ({
     width: 50,
     height: 30,
@@ -69,7 +70,7 @@ function TemperatureType() {
     return (
         <div className={styles.container}>
             <Scale className={styles.scaleF}>°F</Scale>
-            <IOSSwitch onClick={() => {               
+            <IOSSwitch checked={value} onClick={() => {               
                         dispatch(changeScale())
                     }} />
             <Scale className={styles.scaleC}>°C</Scale>

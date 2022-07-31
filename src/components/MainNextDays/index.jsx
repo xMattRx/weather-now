@@ -5,7 +5,6 @@ import { capitalize } from '../../utils';
 import DayWeek from '../DayWeek';
 
 export default function MainNextDays({data}) {
-  console.log(data)
 
     const {nextDays} = useSelector((state) => state.language.value)
     const {value} = useSelector((state) => state.data)
@@ -22,8 +21,7 @@ export default function MainNextDays({data}) {
         <p className={styles.description}>{removeSee()}</p>
         <div className={styles.containerDays}>
             {data.map((element,i)=>{
-
-              return <DayWeek data={element}/>
+              return <DayWeek key={i} data={element}/>
 
             })}
 

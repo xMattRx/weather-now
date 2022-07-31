@@ -1,44 +1,37 @@
 import React from 'react';
-import cloud from '../../assets/images/cloud.svg';
-import storm from '../../assets/images/storm.svg';
-import sun from '../../assets/images/sun.svg';
-import sun_cloud from '../../assets/images/sun_cloud.svg';
+import { useSelector } from 'react-redux';
 import styles from '../../styles/DayWeek.module.scss';
+import { capitalize, dayOfWeekLanguage, monthLanguage } from '../../utils';
 
-export default function DayWeek(data) {
+export default function DayWeek({data}) {
 
-    console.log(data)
+    const {language} = useSelector((state) => state.language.value)
 
-    function Storm(){
-        return(
-            <img className={styles.weather} src={storm} alt="storm"/>
-        )
-    }
-    function Cloud(){
-        return(
-            <img className={styles.weather} src={cloud} alt="cloud"/>
-        )
-    }
-    function Sun(){
-        return(
-            <img className={styles.weather} src={sun} alt="sun"/>
-        )
-    }
-    function SunCloud(){
-        return(
-            <img className={styles.weather} src={sun_cloud} alt="storm"/>
-        )
-    }
+    const dateString = data.dt_txt.split(' ')[0];
     
+    const year = parseInt(dateString.substring(0, 4))
+    const month = parseInt(dateString.substring(5, 7))
+    const day = parseInt(dateString.substring(8, 10))
+
+    
+
+    const date = new Date();
+    date.setFullYear(year,month,day);
+    
+
 
   return (
     <div className={styles.container}>
-        <p className={styles.day}>Qua, 27 Jul</p>
-        {Storm()}
-        <p className={styles.min}>13°</p>
+        <div className={styles.distance}>
+            <p className={styles.day}>{`${dayOfWeekLanguage(language, day).substring(0,3)}, ${date.getDate()} ${monthLanguage(language, month)}`}</p>
+        </div>
+        <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}/>
+        <p className={styles.min}>{Math.round(data.main.temp_min)}°</p>
         <div className={styles.line}/>
-        <p className={styles.max}>25°</p>
-        <p className={styles.status}>céu limpo</p>
+        <p className={styles.max}>{Math.round(data.main.temp_max)}°</p>
+        <p className={styles.status}>{capitalize(data.weather[0].description)}</p>
     </div>
   )
 }
+
+
