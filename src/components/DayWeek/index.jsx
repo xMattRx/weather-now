@@ -5,7 +5,9 @@ import sun from '../../assets/images/sun.svg';
 import sun_cloud from '../../assets/images/sun_cloud.svg';
 import styles from '../../styles/DayWeek.module.scss';
 
-export default function DayWeek() {
+export default function DayWeek(data) {
+
+    console.log(data)
 
     function Storm(){
         return(

@@ -61,6 +61,11 @@
 
         p {
             font-size: 12px;
+
+
+            &:active {
+                border-bottom: 1px solid #fff;
+            }
         }
     }
 

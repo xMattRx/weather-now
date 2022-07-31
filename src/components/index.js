@@ -17,3 +17,9 @@ export const Scale = styled.span`
     font-weight: 400;
     line-height: 18px;
 `
+
+export const GenericContainer = styled.div`
+display: flex;
+justify-content: center;
+
+`

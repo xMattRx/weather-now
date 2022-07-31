@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import scriptLoader from 'react-async-script-loader';
 import PlacesAutocomplete from 'react-places-autocomplete';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
+import { getData } from '../../redux/dataSlice';
 import styles from '../../styles/MainHome.module.scss';
 
 function MainHome({isScriptLoaded, isScriptLoadSucceed}) {
     const language = useSelector((state) => state.language.value)
     const [address, setAddress] = useState("");
+    const dispatch = useDispatch()
+    
+    useEffect(()=>{
+        dispatch(getData(undefined))
+    },[])
 
     // REACT_APP_WEATHER_KEY
     // REACT_APP_GOOGLE_KEY
@@ -42,9 +48,9 @@ function MainHome({isScriptLoaded, isScriptLoadSucceed}) {
                             }).map((suggestion, index)=>{
                                 // console.log(suggestion)
                                 return(
-                                    <div key={index} {...getSuggestionItemProps(suggestion)}>
-                                        <Link to={`/${formatString(suggestion.formattedSuggestion.mainText)}`}><p>{suggestion.formattedSuggestion.mainText}</p></Link>
-                                    </div>
+                                        <div key={index} {...getSuggestionItemProps(suggestion)}>
+                                            <Link to={`/${formatString(suggestion.formattedSuggestion.mainText)}`}><p>{suggestion.formattedSuggestion.mainText}</p></Link>
+                                        </div>
                                 )
                             })}
                         </div>
@@ -59,4 +65,3 @@ function MainHome({isScriptLoaded, isScriptLoadSucceed}) {
 }
 
 export default scriptLoader([`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_KEY}&libraries=places`])(MainHome)
-
