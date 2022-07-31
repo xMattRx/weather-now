@@ -25,11 +25,14 @@ export default function DayWeek({data}) {
         <div className={styles.distance}>
             <p className={styles.day}>{`${dayOfWeekLanguage(language, day).substring(0,3)}, ${date.getDate()} ${monthLanguage(language, month)}`}</p>
         </div>
-        <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}/>
-        <p className={styles.min}>{Math.round(data.main.temp_min)}°</p>
-        <div className={styles.line}/>
-        <p className={styles.max}>{Math.round(data.main.temp_max)}°</p>
-        <p className={styles.status}>{capitalize(data.weather[0].description)}</p>
+        <div className={styles.lineContainer}>
+            <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}/>
+            <p className={styles.min}>{Math.round(data.main.temp_min)}°</p>
+            <div className={styles.line}/>
+            <p className={styles.max}>{Math.round(data.main.temp_max)}°</p>
+        </div>
+            <p className={styles.status}>{capitalize(data.weather[0].description)}</p>
+        
     </div>
   )
 }

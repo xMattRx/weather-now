@@ -3,14 +3,21 @@
     display: flex;
     margin-top: 15px;
 
-    .day {
-        font-weight: 700;
-        margin-right: 33px;
-    }
+
 
     .distance {
         width: 190px;
 
+        .day {
+            font-weight: 700;
+            margin-right: 33px;
+        }
+    }
+
+    .lineContainer {
+        display: flex;
+        align-items: center;
+        width: 400px
     }
 
     img {
