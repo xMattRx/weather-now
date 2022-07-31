@@ -12,8 +12,6 @@ export default function CityWeather() {
   const {data, language, scale} = useSelector((state) => state)
   const dispatch = useDispatch()
 
-  // console.log(data.nextDays)
-
   const addZero = (str) =>{
     if(str.length === 1){
       return `0${str}`
@@ -35,11 +33,9 @@ export default function CityWeather() {
       dayMonth = dayMonth.toString()
       let month = tomorrow.getMonth().toString()
       let year = tomorrow.getFullYear().toString()
-      // let string = `${year}-${addZero(month)}-${addZero(dayMonth)}`
       let string = `${year}-${addZero(month)}-${addZero(dayMonth)}`
       arrayDate.push(string)
     }
-    // console.log(arrayDate)
     return arrayDate
 
   }
@@ -48,7 +44,6 @@ export default function CityWeather() {
     try{
     let arrayFive = []
     let dataNextDays = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?&q=${data.value.name}&appid=${process.env.REACT_APP_WEATHER_KEY}&lang=${language.value.api}&units=${scale.value === false ? "imperial": "metric"}`)
-    // console.log(dataNextDays.data.list)
     let filterArray = (dataNextDays.data.list).filter((each)=>{
       return (array[0] === each.dt_txt.split(' ')[0] || array[1] === each.dt_txt.split(' ')[0] || array[2] === each.dt_txt.split(' ')[0] || array[3] === each.dt_txt.split(' ')[0] || array[4] === each.dt_txt.split(' ')[0])
     })
@@ -61,8 +56,6 @@ export default function CityWeather() {
         }
       })
     })
-
-    // console.log(arrayFive)
     return arrayFive
 
 

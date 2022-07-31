@@ -14,14 +14,6 @@ export default function CityWeather() {
   const dispatch = useDispatch()
   let { city } = useParams();
 
-  // console.log("data: "+data.value)
-  // console.log("language: "+language.value)
-  // console.log("scale: "+scale.value)
-
-  //METRIC === CELSIUS === true
-  //IMPERIAL === FAHRENHEIT === false
-  
-
   const Data = async () => {
     try{
     let data = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city.replace("-"," ")}&lang=${language.value.api}&appid=${process.env.REACT_APP_WEATHER_KEY}&units=${scale.value === false ? "imperial": "metric"}`)

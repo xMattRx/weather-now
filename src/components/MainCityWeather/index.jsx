@@ -10,7 +10,6 @@ function MainCityWeather() {
     const {value} = useSelector((state) => state.data)
     let {city} = useParams()
 
-    // console.log(value)
 
   return (
     <main className={styles.main}>
