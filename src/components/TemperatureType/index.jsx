@@ -30,10 +30,6 @@ const IOSSwitch = styled((props) => (
                 opacity: 0.5,
             },
         },
-        '&.Mui-focusVisible .MuiSwitch-thumb': {
-            color: '#D2B3C1',
-            border: '6px solid #fff',
-        },
         '&.Mui-disabled .MuiSwitch-thumb': {
             color:
                 theme.palette.mode === 'light'
