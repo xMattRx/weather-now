@@ -7,6 +7,11 @@
     margin-top: 220px;
     width: max-content;
 
+    @media screen and (max-width: 745px) {
+        padding-right: 20.5px;
+        padding-left: 20.5px;
+    }
+
     .title {
         color: #FFF;
         cursor: default;
@@ -16,6 +21,13 @@
         letter-spacing: 0.14em;
         margin-bottom: 20px;
         text-align: left;
+
+        @media screen and (max-width: 768px) {
+            font-size: 26px;
+            width: 336px;
+            text-align: center;
+        }
+
     }
 
     input {
@@ -32,8 +44,13 @@
         padding-bottom: 13px;
         padding-left: 15px;
         padding-top: 13px;
-        width: 100%;
+        // width: 100%;
+        width: 710px;
 
+        @media screen and (max-width: 768px) {
+
+            width: 334px;
+        }
 
     }
 
