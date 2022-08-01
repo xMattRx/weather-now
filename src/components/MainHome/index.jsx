@@ -42,14 +42,11 @@ function MainHome({isScriptLoaded, isScriptLoadSucceed}) {
 
                         <div className={styles.container_suggestions}>
                             {loading && <div>Loading...</div>}
-                            {/* Apenas cidades mineiras  :) */}
-                            {suggestions.filter((suggestion,index)=>{
-                                return (suggestion.description.includes('Brasil') && suggestion.description.includes('MG'))
-                            }).map((suggestion, index)=>{
-                                // console.log(suggestion)
+                            {suggestions.map((suggestion, index)=>{
+                                console.log(suggestion)
                                 return(
                                         <div key={index} {...getSuggestionItemProps(suggestion)}>
-                                            <Link to={`/${formatString(suggestion.formattedSuggestion.mainText)}`}><p>{suggestion.formattedSuggestion.mainText}</p></Link>
+                                            <Link to={`/${formatString(suggestion.formattedSuggestion.mainText)}`}><p>{suggestion.description}</p></Link>
                                         </div>
                                 )
                             })}
