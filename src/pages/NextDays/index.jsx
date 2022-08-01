@@ -27,8 +27,6 @@ export default function CityWeather() {
     for (let index = 0; index < 5; index++) {
       tomorrow.setDate(tomorrow.getDate() + 1)
       let dayMonth = tomorrow.getDate()
-      console.log(tomorrow.getMonth())
-        
       dayMonth = dayMonth.toString()
       let month = tomorrow.getMonth().toString()
       let year = tomorrow.getFullYear().toString()
@@ -72,8 +70,6 @@ export default function CityWeather() {
       Data(array).then((arrayFive)=>{
         dispatch(nextDays(arrayFive))
       })
-    }else{
-      console.log(data.nextDays)
     }
  
 
