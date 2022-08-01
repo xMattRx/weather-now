@@ -25,11 +25,8 @@ export default function CityWeather() {
   }
 
   useEffect(()=>{
-    if(data.value === undefined){
       Data()
-    }
-
-  },[data.value, language.value, scale.value])
+  },[language.value, scale.value])
 
 
   return (

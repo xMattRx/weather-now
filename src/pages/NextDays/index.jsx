@@ -66,14 +66,12 @@ export default function CityWeather() {
   useEffect(()=>{
 
     let array = FiveDays()
-    if(data.nextDays === undefined || data.nextDays.length === 0){
       Data(array).then((arrayFive)=>{
         dispatch(nextDays(arrayFive))
       })
-    }
  
 
-  },[data.nextDays, language.value, scale.value])
+  },[language.value, scale.value])
 
   
 
