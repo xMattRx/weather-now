@@ -22,14 +22,13 @@ export default function CityWeather() {
     const arrayDate = []
     const today = new Date()
     const tomorrow = new Date(today)
-
+    tomorrow.setMonth(tomorrow.getMonth() + 1)
 
     for (let index = 0; index < 5; index++) {
       tomorrow.setDate(tomorrow.getDate() + 1)
       let dayMonth = tomorrow.getDate()
-      if(dayMonth === 1){
-        tomorrow.setMonth(tomorrow.getMonth() + 1)
-      }
+      console.log(tomorrow.getMonth())
+        
       dayMonth = dayMonth.toString()
       let month = tomorrow.getMonth().toString()
       let year = tomorrow.getFullYear().toString()
@@ -43,10 +42,12 @@ export default function CityWeather() {
   const Data = async (array) => {
     try{
     let arrayFive = []
-    let dataNextDays = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?&q=${data.value.name}&appid=${process.env.REACT_APP_WEATHER_KEY}&lang=${language.value.api}&units=${scale.value === false ? "imperial": "metric"}`)
+    let dataNextDays = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?&q=${data.value.name}&lang=${language.value.api}&appid=${process.env.REACT_APP_WEATHER_KEY}&units=${scale.value === false ? "imperial": "metric"}`)
     let filterArray = (dataNextDays.data.list).filter((each)=>{
       return (array[0] === each.dt_txt.split(' ')[0] || array[1] === each.dt_txt.split(' ')[0] || array[2] === each.dt_txt.split(' ')[0] || array[3] === each.dt_txt.split(' ')[0] || array[4] === each.dt_txt.split(' ')[0])
     })
+ 
+    
 
     array.forEach((each)=>{
       let compare = each + " 00:00:00"
@@ -60,15 +61,20 @@ export default function CityWeather() {
 
 
     }catch(err) {
-      console.log("Error to get weather data")
+      console.log("Error: " + err)
     }
   }
 
   useEffect(()=>{
+
     let array = FiveDays()
-    Data(array).then((arrayFive)=>{
-      dispatch(nextDays(arrayFive))
-    })
+    if(data.nextDays === undefined || data.nextDays.length === 0){
+      Data(array).then((arrayFive)=>{
+        dispatch(nextDays(arrayFive))
+      })
+    }else{
+      console.log(data.nextDays)
+    }
  
 
   },[data.nextDays, language.value, scale.value])
