@@ -1,0 +1,25 @@
+.container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 471px;
+    margin-top: 371px;
+    width: 100%;
+
+    h2 {
+        color: #fff;
+        font-size: 43px;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-family: 'Montserrat';
+    }
+
+    p {
+        color: #fff;
+        font-size: 23px;
+        font-weight: bold;
+        font-family: 'Montserrat';
+        margin-top: 20px;
+    }
+}

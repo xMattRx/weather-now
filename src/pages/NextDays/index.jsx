@@ -5,7 +5,8 @@ import { Container, GenericContainer } from '../../components'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import MainNextDays from '../../components/MainNextDays'
-import { nextDays } from '../../redux/dataSlice'
+import { nextDays, setError } from '../../redux/dataSlice'
+import Error from '../Error'
 
 export default function CityWeather() {
 
@@ -59,7 +60,8 @@ export default function CityWeather() {
 
 
     }catch(err) {
-      console.log("Error: " + err)
+      dispatch(setError(err))
+      console.log(err)
     }
   }
 
@@ -84,6 +86,7 @@ export default function CityWeather() {
         {data.nextDays &&
           <MainNextDays data={data.nextDays}/>
         }
+        {data.error && <Error submessage={language.value.error} message={data.error.message}/>}
         <Footer/>
       </Container>
     </GenericContainer>

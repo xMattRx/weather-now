@@ -6,7 +6,9 @@ import { Container, GenericContainer } from '../../components'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import MainCityWeather from '../../components/MainCityWeather'
-import { getData } from '../../redux/dataSlice'
+import { getData, setError } from '../../redux/dataSlice'
+import Error from '../Error'
+
 
 export default function CityWeather() {
 
@@ -20,6 +22,8 @@ export default function CityWeather() {
     let weatherData = data.data
     dispatch(getData(weatherData))
     }catch(err) {
+      dispatch(setError(err))
+      console.log(err)
       console.log("Error to get weather data")
     }
   }
@@ -35,6 +39,7 @@ export default function CityWeather() {
       <Header/>
 
       {data.value && <MainCityWeather/>}
+      {data.error && <Error submessage={language.value.error} message={data.error.message}/>}
 
       <Footer/>
     </Container>

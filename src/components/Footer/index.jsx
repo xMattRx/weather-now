@@ -24,7 +24,8 @@ function Footer() {
                             placeholder: "Digite o nome da cidade",
                             select: "Idioma selecionado:",
                             nextDays: "Ver previsão para os próximos 5 dias",
-                            api: "pt_br"
+                            api: "pt_br",
+                            error: "Volte a pagina"
                         }))
                     }} alt={language === 'Português' ? language : language === "English" ? "Portuguese" : "Portugués"} />
                     <img src={EUA} onClick={() => {
@@ -34,7 +35,8 @@ function Footer() {
                             placeholder: "Enter the city name",
                             select: "Selected language:",
                             nextDays: "See forecast for the next 5 days",
-                            api: "en"
+                            api: "en",
+                            error: "back to page",
                         }))
                     }} alt={language === 'English' ? language : language === "Português" ? "Inglês" : "Inglés"}/>
                     <img src={espanha} onClick={() => {
@@ -44,7 +46,8 @@ function Footer() {
                             placeholder: "Introduzca el nombre de la ciudad",
                             select: "Idioma seleccionado:",
                             nextDays: "Ver previsión para los próximos 5 días",
-                            api: "es"
+                            api: "es",
+                            error: "volver a la página"
                         }))
                     }} alt={language === 'Español' ? language : language === "Português" ? "Espanhol" : "Spanish"} />
 

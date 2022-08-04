@@ -7,7 +7,8 @@ const initialState = {
         placeholder: "Digite o nome da cidade",
         select: "Idioma selecionado:",
         nextDays: "Ver previsão para os próximos 5 dias",
-        api: "pt_br"
+        api: "pt_br",
+        error: "Volte a página"
     },
 }
 
