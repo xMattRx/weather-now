@@ -24,5 +24,6 @@ export function dayOfWeekLanguage(language, day) {
         array = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
     }
 
-    return array[day - 1]
+
+    return array[day]
 }
