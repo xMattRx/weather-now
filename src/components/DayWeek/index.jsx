@@ -13,15 +13,13 @@ export default function DayWeek({data}) {
     const month = parseInt(dateString.substring(5, 7))
     const day = parseInt(dateString.substring(8, 10))
 
-    
-
     const date = new Date();
-    date.setFullYear(year,month-1,day);
+    date.setFullYear(year,month,day);
 
   return (
     <div className={styles.container}>
         <div className={styles.distance}>
-            <p className={styles.day}>{`${dayOfWeekLanguage(language, date.getDay()).substring(0,3)}, ${date.getDate()} ${monthLanguage(language, month)}`}</p>
+            <p className={styles.day}>{`${dayOfWeekLanguage(language, date.getDay()).substring(0,3)}, ${date.getDate()} ${monthLanguage(language, date.getMonth())}`}</p>
         </div>
         <div className={styles.lineContainer}>
             <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}/>
