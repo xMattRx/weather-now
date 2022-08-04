@@ -8,7 +8,6 @@ export default function DayWeek({data}) {
     const {language} = useSelector((state) => state.language.value)
 
     const dateString = data.dt_txt.split(' ')[0];
-    console.log(dateString)
     const year = parseInt(dateString.substring(0, 4))
     const month = parseInt(dateString.substring(5, 7))
     const day = parseInt(dateString.substring(8, 10))
