@@ -16,6 +16,8 @@ export default function CityWeather() {
   const addZero = (str) =>{
     if(str.length === 1){
       return `0${str}`
+    }else{
+      return str
     }
   }
 
