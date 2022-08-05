@@ -43,7 +43,6 @@ function MainHome({isScriptLoaded, isScriptLoadSucceed}) {
                         <div className={styles.container_suggestions}>
                             {loading && <div>Loading...</div>}
                             {suggestions.map((suggestion, index)=>{
-                                console.log(suggestion)
                                 return(
                                         <div key={index} {...getSuggestionItemProps(suggestion)}>
                                             <Link to={`/${formatString(suggestion.formattedSuggestion.mainText)}`}><p>{suggestion.description}</p></Link>

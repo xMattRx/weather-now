@@ -34,6 +34,7 @@ export default function CityWeather() {
       let string = `${year}-${addZero(month)}-${addZero(dayMonth)}`
       arrayDate.push(string)
     }
+    
     return arrayDate
 
   }
@@ -56,6 +57,7 @@ export default function CityWeather() {
         }
       })
     })
+
     return arrayFive
 
 
