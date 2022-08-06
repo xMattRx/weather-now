@@ -59,7 +59,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    background-image: url('./sky.png');
+    background-image: url('./sky2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 34%;
